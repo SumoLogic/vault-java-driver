@@ -143,5 +143,7 @@ public class Vault {
      *
      * @return The implementing class for Vault's seal operations (e.g. seal, unseal, sealStatus).
      */
-    public Seal seal() { return new Seal(vaultConfig); }
+    public Seal seal() {
+        return new Seal(vaultConfig);
+    }
 }

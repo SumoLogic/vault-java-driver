@@ -11,8 +11,8 @@ import java.io.UnsupportedEncodingException;
  */
 public class SealResponse extends VaultResponse {
     private Boolean sealed;
-    private Long t;
-    private Long n;
+    private Long threshold;
+    private Long numberOfShares;
     private Long progress;
 
     /**
@@ -29,8 +29,8 @@ public class SealResponse extends VaultResponse {
             final JsonObject jsonObject = Json.parse(responseJson).asObject();
 
             sealed = jsonObject.getBoolean("sealed", false);
-            t = jsonObject.getLong("t", 0);
-            n = jsonObject.getLong("n", 0);
+            threshold = jsonObject.getLong("t", 0);
+            numberOfShares = jsonObject.getLong("n", 0);
             progress = jsonObject.getLong("progress", 0);
 
         } catch (UnsupportedEncodingException | ParseException e) {
@@ -41,12 +41,12 @@ public class SealResponse extends VaultResponse {
         return sealed;
     }
 
-    public Long getT() {
-        return t;
+    public Long getThreshold() {
+        return threshold;
     }
 
-    public Long getN() {
-        return n;
+    public Long getNumberOfShares() {
+        return numberOfShares;
     }
 
     public Long getProgress() {
