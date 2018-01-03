@@ -10,18 +10,18 @@ alike, without causing conflicts with any other dependency.
 
 Table of Contents
 -----------------
-* Installing the Driver
-* Initializing a Driver Instance
-* SSL Config
-  * General Options
-  * Java Keystore (JKS) based config
-  * OpenSSL (PEM) based config
-* Using the driver
-* API Reference (Javadocs)
-* Version History
-* Development
-* License
-* Other Notes
+* [Installing the Driver](#installing-the-driver)
+* [Initializing a Driver Instance](#initializing-a-driver-instance)
+* [SSL Config](#ssl-config)
+  * [General Options](#general-options)
+  * [Java Keystore (JKS) based config](#java-keystore-jks-based-config)
+  * [OpenSSL (PEM) based config](#openssl-pem-based-config)
+* [Using the driver](#using-the-driver)
+* [API Reference (Javadocs)](#api-reference-javadocs)
+* [Version History](#version-history)
+* [Development](#development)
+* [License](#license)
+* [Other Notes](#other-notes)
 
 Installing the Driver
 ---------------------
@@ -49,7 +49,7 @@ The `com.bettercloud.vault.VaultConfig` class is used to initialize a driver ins
 In the most basic use cases, where you are only supplying a Vault server address and perhaps a root token, there
 are convenience constructor methods available:
 ```
-final VaultConfig config = new VaultConfig
+final VaultConfig config = new VaultConfig()
                                   .address("http://127.0.0.1:8200")
                                   .token("3c9fd6be-7bc2-9d1f-6fb3-cd746c0fc4e8")
                                   .build();
@@ -221,6 +221,11 @@ Version History
 Note that changes to the major version (i.e. the first number) represent possible breaking changes, and
 may require modifications in your code to migrate.  Changes to the minor version (i.e. the second number)
 should represent non-breaking changes.  The third number represents any very minor bugfix patches.
+
+* **3.1.0 (IN PROGRESS)**:  Allows auth backend methods to be configured for non-default mount points.  
+  Adds support for the LDAP Auth Backend.  Adds "revoke-self" capability for 
+  auth tokens.  Cleans up issues with the new Docker-based integration test suite.  Updates all 
+  dependencies to their latest versions (including switching to Vault 0.8.3 for integration testing).
 
 * **3.0.0**: This is a breaking-change release, with several updates.
   * **API changes**:
